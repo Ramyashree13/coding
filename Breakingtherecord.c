@@ -8,23 +8,24 @@ vector<string> split_string(string);
 vector<int> breakingRecords(vector<int> scores) 
 {
     int i,ele,l=0,s=0;
-    ele=scores[0];
-    for(i=1;i<scores.size();i++)
+    vector<int> res;
+    //ele=scores[0];
+    for(i=0;i<scores.size();i++)
     {
-        if(ele>scores[i])
+        if(scores[i]>scores[i+1])
         {
-            ele=scores[i];
+            //ele=scores[i];
             l++;
         }
-        s=ele;
-        if(s!=ele)
+        s=scores[i];
+        if(scores[i-1]!=s)
         {
             s++;
         }
-        
     }
-
-
+    res.push_back(s);
+    res.push_back(l);
+    return res;
 }
 
 int main()
