@@ -1,28 +1,23 @@
 vector<int> breakingRecords(vector<int> scores) 
 {
-    int i,ele,l=0,small=0,s,low;
+    int i,ele,l=0,s=0,low,high;
     vector<int> res;
-    //ele=scores[0];
+     low=high=scores[0];
     for(i=1;i<scores.size();i++)
     {
-        low=scores[0];
-        if(scores[i]>scores[i-1])
+       
+        if(scores[i]>high)
         {
-            //ele=scores[i];
+            high=scores[i];
             l++;
-            s=scores[i-1];
         }
-        else
+        if(scores[i]<low && scores[i]!=low)
         {
-            s=scores[i];
-        }
-        if(low!=s || s<low)
-        {
-            low=s;
-            small++;
+            low=scores[i];
+            s++;
         }
     }
-    res.push_back(small);
     res.push_back(l);
+    res.push_back(s);
     return res;
 }
