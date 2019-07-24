@@ -1,0 +1,17 @@
+string dayOfProgrammer(int year) 
+{
+    string res;
+    int feb,i,sum=0,date;
+    vector<int> days={31,28,31,30,31,30,31,31};
+    if((year%4)==0)
+    {
+        replace(days,days+1,28,29);
+    }
+    for(i=0;i<days.size();i++)
+    {
+        sum=sum+days[i];
+    }
+    date=256-sum;
+    res.append(date.09.year);
+    return res;
+}
